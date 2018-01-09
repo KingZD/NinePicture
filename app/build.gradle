@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+//Android Annotations版本
+def AAVersion = '4.1.0'
+
+def getBuildTime() {
+    return new Date().format("yyyy-MM-dd HH:mm:ss")
+}
+
+def getGitVersion() {
+    try {
+        return 'git rev-parse --short HEAD'.execute().text.trim()
+    } catch (Throwable th) {
+        return "";
+    }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.explame.AutoPicture"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        resValue "string", "cp_app_build_time", getBuildTime()
+        resValue "string", "cp_app_git_version", getGitVersion()
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    maven { url "https://jitpack.io" }
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    testCompile 'junit:junit:4.12'
+    //Android Annotations
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    //相册
+    compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
+    compile 'io.reactivex:rxjava:1.1.9'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    //权限管理
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.0@aar'
+    compile files('libs/universal-image-loader-1.9.5.jar')
+}

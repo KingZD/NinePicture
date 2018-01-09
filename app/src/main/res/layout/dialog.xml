@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_4c4c4c">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_top"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:minHeight="120dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Title"
+                android:textColor="@color/color_3a3a3a"
+                android:textSize="@dimen/dimen_sp_16"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tvTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dimen_dp_14"
+                    android:textColor="@color/color_d69867"
+                    android:layout_marginRight="@dimen/dimen_dp_5"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Message"
+                    android:textColor="@color/color_3a3a3a"
+                    android:textSize="@dimen/dimen_sp_14" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_dialog_bottom"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPositiveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Positive"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/dimen_sp_14" />
+
+            <TextView
+                android:id="@+id/tvNeutralButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Neutral"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/dimen_sp_14" />
+
+            <TextView
+                android:id="@+id/tvNegativeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Negative"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/dimen_sp_14" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
